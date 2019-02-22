@@ -16,24 +16,13 @@
 
 package org.springframework.http;
 
+import org.springframework.lang.Nullable;
+import org.springframework.util.*;
+
 import java.io.Serializable;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
-
-import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.InvalidMimeTypeException;
-import org.springframework.util.MimeType;
-import org.springframework.util.MimeTypeUtils;
-import org.springframework.util.StringUtils;
 
 /**
  * A sub-class of {@link MimeType} that adds support for quality parameters as defined
@@ -191,6 +180,22 @@ public class MediaType extends MimeType implements Serializable {
 	 * @since 5.0
 	 */
 	public final static String APPLICATION_STREAM_JSON_VALUE = "application/stream+json";
+
+	/**
+	 * Public constant media type for {@code application/stream+json;charset=UTF-8}.
+	 *
+	 * <p>This {@link MediaType#APPLICATION_STREAM_JSON_VALUE} with "UTF-8" charset support,
+	 * because some browsers require it for interpreting correctly UTF-8 special characters.
+	 */
+	public static final MediaType APPLICATION_STREAM_JSON_UTF8;
+
+	/**
+	 * A String equivalent of {@link MediaType#APPLICATION_STREAM_JSON_UTF8}.
+	 *
+	 * <p>This {@link MediaType#APPLICATION_STREAM_JSON_VALUE} with "UTF-8" charset support,
+	 * because some browsers require it for interpreting correctly UTF-8 special characters.
+	 */
+	public static final String APPLICATION_STREAM_JSON_UTF8_VALUE = "application/stream+json;charset=UTF-8";
 
 	/**
 	 * Public constant media type for {@code application/xhtml+xml}.
